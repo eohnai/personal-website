@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const tabs = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
+  { id: "home", label: "Home", path: "/" },
+  { id: "projects", label: "Projects", path: "/projects" },
+  { id: "experience", label: "Experience", path: "/experience" },
+  { id: "contact", label: "Contact", path: "/contact" },
 ];
 
 const TabComponent = () => {
@@ -15,16 +15,14 @@ const TabComponent = () => {
     <div>
       <ul className="nav nav-tabs">
         {tabs.map((tab) => (
-          <li className="nav-item">
-            <a
+          <li className="nav-item" key={tab.id}>
+            <Link
+              to={tab.path}
               className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-              id={`${tab.id}-tab`}
               onClick={() => setActiveTab(tab.id)}
-              aria-controls={tab.id}
-              aria-selected={activeTab === tab.id}
             >
               {tab.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
