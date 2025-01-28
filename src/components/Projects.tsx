@@ -1,3 +1,6 @@
+import Tetris from "../assets/images/Tetris.jpeg"
+import CrazyEights from "../assets/images/CrazyEights.jpeg"
+
 const Projects = () => {
   return (
     <div className="container text-center">
@@ -5,7 +8,7 @@ const Projects = () => {
       <div className="row">
         <div className="col-md-6">
           <div className="card">
-            <img src="/path-to-project1.jpg" className="card-img-top" alt="Project 1" />
+            <img src={Tetris} className="card-img-top" alt="Project 1" />
             <div className="card-body">
               <h5 className="card-title">Tetra League</h5>
               <p className="card-text">
@@ -26,7 +29,7 @@ const Projects = () => {
 
         <div className="col-md-6">
           <div className="card">
-            <img src="/path-to-project2.jpg" className="card-img-top" alt="Project 2" />
+            <img src={CrazyEights} className="card-img-top" alt="Project 2" />
             <div className="card-body">
               <h5 className="card-title">Crazy Eights</h5>
               <p className="card-text">
