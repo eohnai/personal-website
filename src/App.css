@@ -4,7 +4,7 @@ html {
   }
   
   .section {
-    height: 100vh; /* Each section takes up full screen height */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -2,15 +2,15 @@
 const Experience = () => {
   return (
     <div className="container text-center">
-      <h2 className="mb-4">Experience</h2>
+      <h2 className="mb-4 display-4 fw-bold">Experience</h2>
       <div className="row">
         <div className="col-md-6">
-          <div className="card">
+          <div className="card shadow-sm">
             <div className="card-body">
-              <h5 className="card-title">Finance Officer</h5>
+              <h5 className="card-title fw-bold">Finance Officer</h5>
               <h6 className="card-subtitle mb-2 text-muted">Singapore Police Force (Apr 2023 - Jul 2023)</h6>
               <p className="card-text">
-                <ul>
+                <ul className="list-unstyled">
                   <li>
                     Processed salary disbursements for officers, ensuring on-time
                     payments and resolving discrepancies efficiently.
@@ -30,12 +30,12 @@ const Experience = () => {
         </div>
 
         <div className="col-md-6">
-          <div className="card">
+          <div className="card shadow-sm">
             <div className="card-body">
-              <h5 className="card-title">Digital Ambassador</h5>
+              <h5 className="card-title fw-bold">Digital Ambassador</h5>
               <h6 className="card-subtitle mb-2 text-muted">InfoComm Media Development Authority (Jan 2021 - Mar 2021)</h6>
-              <p className="card-text">          
-                <ul>
+              <p className="card-text">
+                <ul className="list-unstyled">
                   <li>
                     Provided lessons to seniors on smartphone functions like messaging,
                     navigation, and app usage.

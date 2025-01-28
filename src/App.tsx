@@ -2,7 +2,7 @@
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
-import Contact from "./components/Contact";
+import Footer from "./components/Footer"
 import "./App.css";
 
 function App() {
@@ -18,9 +18,8 @@ function App() {
       <section id="experience" className="section">
         <Experience />
       </section>
-      <section id="contact" className="section">
-        <Contact />
-      </section>
+
+      <Footer />
     </div>
   );
 }

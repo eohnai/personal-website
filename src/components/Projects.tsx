@@ -5,15 +5,15 @@ import CrazyEights from "../assets/images/CrazyEights.jpeg"
 const Projects = () => {
   return (
     <div className="container text-center">
-      <h2 className="mb-4">Projects</h2>
+      <h2 className="mb-4 display-4 fw-bold">Projects</h2>
       <div className="row">
         <div className="col-md-6">
-          <div className="card">
+          <div className="card shadow-sm">
             <img src={Tetris} className="card-img-top" alt="Project 1" />
             <div className="card-body">
-              <h5 className="card-title">Tetra League | Spring Boot, React, MongoDB</h5>
+              <h5 className="card-title fw-bold">Tetra League | Spring Boot, React, MongoDB</h5>
               <p className="card-text">
-                <ul>
+                <ul className="list-unstyled">
                   <li>
                     Developed a tournament management system for Tetris, handling player
                     registration, match scheduling, and live leaderboard tracking.
@@ -29,12 +29,12 @@ const Projects = () => {
         </div>
 
         <div className="col-md-6">
-          <div className="card">
+          <div className="card shadow-sm">
             <img src={CrazyEights} className="card-img-top" alt="Project 2" />
             <div className="card-body">
-              <h5 className="card-title">Crazy Eights | Java Swing</h5>
+              <h5 className="card-title fw-bold">Crazy Eights | Java Swing</h5>
               <p className="card-text">
-                <ul>
+                <ul className="list-unstyled">
                   <li>
                     Developed a Java Swing version of the classic Crazy Eights card
                     game.
@@ -47,7 +47,6 @@ const Projects = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
