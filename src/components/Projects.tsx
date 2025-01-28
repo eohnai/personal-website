@@ -1,3 +1,4 @@
+
 import Tetris from "../assets/images/Tetris.jpeg"
 import CrazyEights from "../assets/images/CrazyEights.jpeg"
 
@@ -10,7 +11,7 @@ const Projects = () => {
           <div className="card">
             <img src={Tetris} className="card-img-top" alt="Project 1" />
             <div className="card-body">
-              <h5 className="card-title">Tetra League</h5>
+              <h5 className="card-title">Tetra League | Spring Boot, React, MongoDB</h5>
               <p className="card-text">
                 <ul>
                   <li>
@@ -31,7 +32,7 @@ const Projects = () => {
           <div className="card">
             <img src={CrazyEights} className="card-img-top" alt="Project 2" />
             <div className="card-body">
-              <h5 className="card-title">Crazy Eights</h5>
+              <h5 className="card-title">Crazy Eights | Java Swing</h5>
               <p className="card-text">
                 <ul>
                   <li>
