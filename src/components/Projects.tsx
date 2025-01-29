@@ -12,8 +12,7 @@ const projects = [
     image: FPL,
     link: "https://github.com/eohnai/fpl-analysis",
     description: [
-      "Analysing FPL data to determine the best players to get for each squad.",
-      "Future work: Incorporating AI elements to predict the best players for each team."
+      "Analysed Fantasy Premier League (FPL) data to identify high-performing players based on historical trends and fixture difficulty.",
     ]
   },
   {
@@ -23,7 +22,6 @@ const projects = [
     link: "https://github.com/eohnai/CS203-Project",
     description: [
       "Developed a tournament management system for Tetris, handling player registration, match scheduling, and live leaderboard tracking.",
-      "Implemented an Elo-based ranking system to match players of similar skill levels for fair gameplay."
     ],
   },
   {
@@ -32,11 +30,11 @@ const projects = [
     image: CrazyEights,
     link: "https://github.com/eohnai/FinalProjectCrazyEight",
     description: [
-      "Developed a Java Swing version of the classic Crazy Eights card game.",
-      "Designed an interactive graphical user interface (GUI)."
+      "Developed a Java Swing version of the classic Crazy Eights card game with an interactive graphical interface and computer-controlled opponents.",
     ],
   },
 ];
+
 
 const Projects = () => {
   return (
@@ -64,7 +62,7 @@ const Projects = () => {
                         <img 
                           src={project.image} 
                           className="img-fluid"
-                          style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "10px" }} 
+                          style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "10px" }} 
                           alt={project.title} 
                         />
                         {/* Card Body */}
