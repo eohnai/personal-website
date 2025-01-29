@@ -3,6 +3,10 @@ html {
     scroll-behavior: smooth;
 }
 
+:target {
+    scroll-margin-top: 60px;
+}
+
 /* Global Styles */
 body {
     background-color: #FDF6EC;
