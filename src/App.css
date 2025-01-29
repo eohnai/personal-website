@@ -94,3 +94,9 @@ footer .btn-secondary {
 footer .btn-secondary:hover {
     background-color: #5a6268;
 }
+
+.no-link-style {
+    color: black !important;
+    text-decoration: none !important;
+  }
+  
