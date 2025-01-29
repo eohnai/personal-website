@@ -14,7 +14,17 @@ body {
 }
 
 /* Sections */
-.section {
+#home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #FDF6EC;
+}
+
+#projects,
+#experience {
     height: 75vh;
     display: flex;
     justify-content: center;

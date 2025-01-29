@@ -12,16 +12,13 @@ const Experience = () => {
               <p className="card-text">
                 <ul className="list-unstyled">
                   <li>
-                    Processed salary disbursements for officers, ensuring on-time
-                    payments and resolving discrepancies efficiently.
+                    Processed salary disbursements for officers and resolved discrepancies efficiently.
                   </li>
                   <li>
-                    Conducted tax and bonus calculations with accuracy and compliance
-                    with financial regulations.
+                    Conducted tax and bonus calculations with accuracy.
                   </li>
                   <li>
-                    Reconciled bank accounts for transactions, streamlining reporting
-                    processes for audit readiness.
+                    Reconciled bank accounts for transactions, streamlining reporting processes for audit readiness.
                   </li>
                 </ul>
               </p>
