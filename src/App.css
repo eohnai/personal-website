@@ -5,29 +5,29 @@ html {
 
 /* Global Styles */
 body {
-    background-color: #FDF6EC; /* Cream background for all sections */
-    color: #333; /* Dark text for readability */
+    background-color: #FDF6EC;
+    color: #333;
 }
 
 /* Sections */
 .section {
-    min-height: 75vh; /* Ensures sections have a base height but can expand */
-    height: auto; /* Allows sections to grow based on content */
+    min-height: 75vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
-    background-color: #FDF6EC; /* Keeps the consistent cream background */
+    background-color: #FDF6EC;
 }
 
-/* Responsive adjustments for smaller screens
-@media (max-width: 768px) {
-    .section {
-        min-height: 60vh; /* Reduces height for smaller devices */
-        /* padding: 40px 15px; Adjusts padding for better spacing */
-    /* } */
-/* }  */
-
+/* Fix the "Projects" Title in Place */
+.projects-title {
+    position: sticky;
+    top: 0;
+    background-color: #FDF6EC;
+    z-index: 10;
+    padding: 20px 0;
+}
 
 /* Headers */
 h2 {
@@ -39,33 +39,45 @@ h2 {
 
 /* Navbar */
 .navbar {
-    background-color: #F5F5F5; /* Light grey */
-    border-bottom: 2px solid #E0E0E0; /* Soft separator */
+    background-color: #F5F5F5;
+    border-bottom: 2px solid #E0E0E0;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Cards */
+/* 🛠 Ensure All Cards Have the Same Height */
 .card {
-    min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF; /* White cards for contrast */
+    background-color: #FFFFFF;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 450px;
+    height: 100%;  /* Make sure all cards grow equally */
 }
 
-.card-text {
-    flex-grow: 1;
+/* 🛠 Force All Cards to Match the Tallest One */
+.card-container {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Allow Card Body to Expand */
+.card-body {
+    flex-grow: 1;  /* Expands to fit content */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: visible;
 }
 
-/* Ensure images in projects have consistent height */
-.card-img-top {
-    height: 300px;
+/* Uniform Image Sizing */
+.card img {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 /* Layout Fixes */
@@ -76,12 +88,43 @@ h2 {
 
 .col-md-6 {
     display: flex;
+    justify-content: center;
+}
+
+/* 🛠 Fix Carousel Height to Prevent Arrow Shifting */
+.carousel-inner {
+    min-height: 450px; /* Ensures consistent height across slides */
+    display: flex;
+    align-items: center;
+}
+
+/* 🛠 Fix Arrow Buttons in Place */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #6c757d;
+}
+
+.carousel-control-prev:active,
+.carousel-control-next:active {
+    background-color: #5a6268;
 }
 
 /* Footer */
 footer {
     background-color: #F5F5F5;
-    border-top: 2px solid #E0E0E0; /* Soft separator */
+    border-top: 2px solid #E0E0E0;
     padding: 30px 0;
     color: #333;
     text-align: center;
@@ -105,8 +148,8 @@ footer .btn-secondary:hover {
     background-color: #5a6268;
 }
 
+/* Disable default link styles for project cards */
 .no-link-style {
     color: black !important;
     text-decoration: none !important;
-  }
-  
+}
