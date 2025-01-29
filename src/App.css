@@ -1,13 +1,96 @@
-
+/* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
-  }
-  
-  .section {
-    height: 100vh;
+}
+
+/* Global Styles */
+body {
+    background-color: #FDF6EC; /* Cream background for all sections */
+    color: #333; /* Dark text for readability */
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
-  }
-  
+    padding: 80px 20px;
+    background-color: #FDF6EC; /* Ensures all sections use cream */
+}
+
+/* Headers */
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #F5F5F5; /* Light grey */
+    border-bottom: 2px solid #E0E0E0; /* Soft separator */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Cards */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF; /* White cards for contrast */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Ensure images in projects have consistent height */
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Layout Fixes */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-6 {
+    display: flex;
+}
+
+/* Footer */
+footer {
+    background-color: #F5F5F5;
+    border-top: 2px solid #E0E0E0; /* Soft separator */
+    padding: 30px 0;
+    color: #333;
+    text-align: center;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #0056b3;
+}
+
+footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+footer .btn-secondary:hover {
+    background-color: #5a6268;
+}
