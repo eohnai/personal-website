@@ -16,6 +16,15 @@ const projects = [
     ]
   },
   {
+    title: "Not-SQL",
+    tech: "Java",
+    image: NotSQL,
+    link: "https://github.com/jeremainecheong/CS201-In-Memory-DB-Project",
+    description: [
+      "This project reimagines their design by enhancing fundamental data structures with specialised tweaks to optimise specific query patterns, challenging conventional principles to explore impacts on scalability and performance."
+    ]
+  },
+  {
     title: "Tetra League",
     tech: "Spring Boot, React, MongoDB",
     image: Tetris,
@@ -28,7 +37,7 @@ const projects = [
     title: "Crazy Eights",
     tech: "Java Swing",
     image: CrazyEights,
-    link: "https://github.com/eohnai/FinalProjectCrazyEight",
+    link: "https://github.com/joshuacdj/FinalProjectCrazyEight",
     description: [
       "Developed a Java Swing version of the classic Crazy Eights card game with an interactive graphical interface and computer-controlled opponents.",
     ],
