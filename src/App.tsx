@@ -1,8 +1,8 @@
-
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
-import Footer from "./components/Footer"
+import Certification from "./components/Certifications";
+import Contact from "./components/Contact";
 import "./App.css";
 
 function App() {
@@ -18,8 +18,12 @@ function App() {
       <section id="experience" className="section">
         <Experience />
       </section>
-
-      <Footer />
+      <section id="certifications" className="section">
+        <Certification />
+      </section>
+      <section id="contact" className="section">
+        <Contact />
+      </section>
     </div>
   );
 }

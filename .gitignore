@@ -3257,3 +3257,4 @@ node_modules/vite/dist/node/index.d.ts
 node_modules/vite/dist/node/index.js
 node_modules/vite/package.json
 node_modules/.package-lock.json
+node_modules/.vite/deps/_metadata.json
