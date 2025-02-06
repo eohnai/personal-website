@@ -1,8 +1,8 @@
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import Certification from "./components/Certifications";
 import Contact from "./components/Contact";
-// import Footer from "./components/Footer"
 import "./App.css";
 
 function App() {
@@ -17,6 +17,9 @@ function App() {
       </section>
       <section id="experience" className="section">
         <Experience />
+      </section>
+      <section id="certifications" className="section">
+        <Certification />
       </section>
       <section id="contact" className="section">
         <Contact />
