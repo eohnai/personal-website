@@ -20,14 +20,25 @@ body {
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
+}
+
+#home {
+    /* height: 100vh; */
     background-color: #FDF6EC;
+}
+
+#projects {
+    background-color: #FAE6D3; /* Slightly darker peach */
+}
+
+#experience {
+    background-color: #F5D0A9; /* Light orange */
 }
 
 /* Fix the "Projects" Title in Place */
 .projects-title {
     position: relative;
     top: 0;
-    background-color: #FDF6EC;
     z-index: 10;
     padding: 20px 0;
 }
@@ -157,3 +168,4 @@ footer .btn-secondary:hover {
     color: black !important;
     text-decoration: none !important;
 }
+
