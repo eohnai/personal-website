@@ -46,7 +46,7 @@ const Footer = () => {
                 <FaLinkedin size={28} />
               </a>
               <a 
-                href="mailto:your.email@example.com" 
+                href="mailto:ianhoe@gmail.com" 
                 className="mx-3 social-icon"
                 aria-label="Email"
               >

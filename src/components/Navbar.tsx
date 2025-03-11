@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -69,6 +69,13 @@ const Navbar = () => {
               aria-label="LinkedIn"
             >
               <FaLinkedin size={24} />
+            </a>
+            <a
+              href="mailto:ianhoe@gmail.com"
+              className="mx-2 social-icon"
+              aria-label="Email"
+            >
+              <FaEnvelope size={24} />
             </a>
           </div>
         </div>

@@ -56,7 +56,7 @@ const Skills = () => {
           <h3 className="mb-4">{category}</h3>
           <div className="row justify-content-center">
             {skillsByCategory[category]?.map((skill, index) => (
-              <div key={index} className="col-4 col-md-3 col-lg-2 mb-4">
+              <div key={index} className="col-4 col-md-3 col-lg-2 mb-4 d-flex justify-content-center">
                 <div className="skill-card">
                   <div className="skill-icon mb-2">
                     {skill.icon}
