@@ -4,168 +4,258 @@ html {
 }
 
 :target {
-    scroll-margin-top: 60px;
+    scroll-margin-top: 70px;
 }
 
 /* Global Styles */
 body {
-    background-color: #FDF6EC;
+    background-color: #f8f9fa;
     color: #333;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
 }
 
 /* Sections */
 .section {
-    height: 75vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
-}
-
-#home {
-    /* height: 100vh; */
-    background-color: #FDF6EC;
-}
-
-#projects {
-    background-color: #FAE6D3; /* Slightly darker peach */
-}
-
-#experience {
-    background-color: #F5D0A9; /* Light orange */
-}
-
-/* Fix the "Projects" Title in Place */
-.projects-title {
+    padding: 100px 20px;
     position: relative;
-    top: 0;
-    z-index: 10;
+}
+
+.section:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.section:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.bio-text {
+    line-height: 1.8;
+    color: #495057;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.home-social-icon {
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.home-social-icon:hover {
+    color: #0d6efd;
+    transform: translateY(-5px);
+}
+
+/* Section Titles */
+h2.display-4 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+h2.display-4::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #0d6efd;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Skills Section */
+.skill-card {
+    padding: 15px 10px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.skill-card:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+    transform: translateY(-5px);
+}
+
+.skill-icon {
+    color: #0d6efd;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.15);
+}
+
+.skill-name {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Education Section */
+.education-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    border: none;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Cards */
+.card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    padding: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    margin-bottom: 16px;
+    color: #6c757d;
+}
+
+.project-list {
+    padding-left: 1.5rem;
+}
+
+/* Carousel */
+.carousel-inner {
     padding: 20px 0;
 }
 
-/* Headers */
-h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
+.carousel-indicators {
+    bottom: -40px;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #F5F5F5;
-    border-bottom: 2px solid #E0E0E0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+.carousel-indicators [data-bs-target] {
+    background-color: #0d6efd;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 6px;
 }
 
-/* 🛠 Ensure All Cards Have the Same Height */
-.card {
-    display: flex;
-    flex-direction: column;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
-    width: 100%;
-    max-width: 500px;
-    height: 95%;  /* Make sure all cards grow equally */
-}
-
-/* 🛠 Force All Cards to Match the Tallest One */
-.card-container {
-    display: flex;
-    align-items: stretch;
-}
-
-/* Allow Card Body to Expand */
-.card-body {
-    flex-grow: 1;  /* Expands to fit content */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: visible;
-}
-
-/* Increase Image Height */
-.card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;  /* Ensures the full image is visible */
-    padding: 10px;  /* Adds slight padding to prevent cropping */
-    border-radius: 10px;
-}
-
-/* Layout Fixes */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.col-md-6 {
-    display: flex;
-    justify-content: center;
-}
-
-/* 🛠 Fix Carousel Height to Prevent Arrow Shifting */
-.carousel-inner {
-    min-height: 450px; /* Ensures consistent height across slides */
-    display: flex;
-    align-items: center;
-}
-
-/* 🛠 Fix Arrow Buttons in Place */
 .carousel-control-prev,
 .carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #0d6efd;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+.carousel-control-prev {
+    left: -25px;
+}
+
+.carousel-control-next {
+    right: -25px;
 }
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background-color: #6c757d;
+    opacity: 1;
 }
 
-.carousel-control-prev:active,
-.carousel-control-next:active {
-    background-color: #5a6268;
+/* Badge Styling */
+.badge {
+    padding: 6px 12px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    border-radius: 20px;
 }
 
-/* Footer */
-footer {
-    background-color: #F5F5F5;
-    border-top: 2px solid #E0E0E0;
-    padding: 30px 0;
-    color: #333;
-    text-align: center;
+/* Contact Form */
+.form-control {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-footer a {
-    color: #007bff;
-    text-decoration: none;
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-footer a:hover {
-    color: #0056b3;
-}
-
-footer .btn-secondary {
-    background-color: #6c757d;
+.btn-primary {
+    padding: 10px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: #0d6efd;
     border: none;
+    transition: all 0.3s ease;
 }
 
-footer .btn-secondary:hover {
-    background-color: #5a6268;
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
 }
 
-/* Disable default link styles for project cards */
-.no-link-style {
-    color: black !important;
-    text-decoration: none !important;
+.btn-outline-primary {
+    padding: 10px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+    color: #0d6efd;
+    border: 2px solid #0d6efd;
+    background-color: transparent;
+    transition: all 0.3s ease;
 }
 
+/* .btn-outline-primary:hover { */
