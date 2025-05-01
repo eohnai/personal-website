@@ -10,13 +10,30 @@ const Navbar = () => {
 
   // highlight section on scroll
   useEffect(() => {
+    // Set initial active section based on URL hash or default to "home"
+    const setInitialActive = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && sections.includes(hash)) {
+        setActive(hash);
+      } else {
+        setActive("home");
+      }
+    };
+    
+    setInitialActive();
+
     const onScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
+      // Only update active section on scroll if we're not at the top
+      // to prevent Projects from being highlighted when on Home
       document.querySelectorAll<HTMLElement>("section[id]").forEach((sec) => {
         const offset = sec.offsetTop - 120;
         if (window.scrollY >= offset && window.scrollY < offset + sec.offsetHeight) {
           setActive(sec.id);
+        } else if (window.scrollY < 100) {
+          // If we're at the top of the page, ensure home is active
+          setActive("home");
         }
       });
     };
@@ -56,6 +73,7 @@ const Navbar = () => {
                 <a
                   className={`nav-link ${active === s ? "active" : ""}`}
                   href={`#${s}`}
+                  onClick={() => setActive(s)}
                 >
                   {s.charAt(0).toUpperCase() + s.slice(1)}
                 </a>
