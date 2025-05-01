@@ -1,34 +1,41 @@
-const Certification = () => {
-  return (
-    <div className="container text-center">
-      <h2 className="mb-4 display-4 fw-bold">Certifications</h2>
-      <div className="row">
-        <div className="col-md-6">
-          <div className="card shadow-sm">
-            <div className="card-body">
-              <h5 className="card-title fw-bold">
-                Google Advanced Data Analytics
-              </h5>
-              <h6 className="card-subtitle mb-2 text-muted">
-                Obtained Aug 2024
-              </h6>
-            </div>
-          </div>
-        </div>
+import { FaGoogle } from "react-icons/fa";
 
-        <div className="col-md-6">
-          <div className="card shadow-sm">
-            <div className="card-body">
-              <h5 className="card-title fw-bold">Google AI Essentials</h5>
-              <h6 className="card-subtitle mb-2 text-muted">
-                Obtained Aug 2024
-              </h6>
-            </div>
+interface Cert {
+  title: string;
+  date: string;
+  icon: JSX.Element;
+}
+
+const certs: Cert[] = [
+  {
+    title: "Google Advanced Data Analytics",
+    date: "Aug 2024",
+    icon: <FaGoogle />,
+  },
+  {
+    title: "Google AI Essentials",
+    date: "Aug 2024",
+    icon: <FaGoogle />,
+  },
+];
+
+const Certifications = () => (
+  <section id="certifications" className="cert-section">
+    <h2 className="section-title text-center">Certifications</h2>
+
+    <div className="cert-grid">
+      {certs.map((c) => (
+        <article key={c.title} className="cert-card">
+          <span className="cert-icon">{c.icon}</span>
+
+          <div>
+            <h5>{c.title}</h5>
+            <small className="text-muted">Obtained {c.date}</small>
           </div>
-        </div>
-      </div>
+        </article>
+      ))}
     </div>
-  );
-};
+  </section>
+);
 
-export default Certification;
+export default Certifications;

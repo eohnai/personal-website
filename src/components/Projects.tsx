@@ -1,5 +1,7 @@
+import Masonry from "react-masonry-css";
+import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+
 import Tetris from "../assets/images/Tetris.jpeg";
 import CrazyEights from "../assets/images/CrazyEights.jpeg";
 import FPL from "../assets/images/FPL.jpeg";
@@ -22,7 +24,7 @@ const projects: Project[] = [
     description: [
       "Used Pandas to analyse Fantasy Premier League (FPL) data to uncover player performance trends and optimise team selection.",
     ],
-    timeline: "Jan 2025 - Present"
+    timeline: "Jan 2025 - Present",
   },
   {
     title: "Not-SQL",
@@ -31,9 +33,9 @@ const projects: Project[] = [
     link: "https://github.com/jeremainecheong/CS201-In-Memory-DB-Project",
     description: [
       "Reimagined database design by enhancing fundamental data structures with specialised tweaks to optimise specific query patterns.",
-      "Challenged conventional principles to explore impacts on scalability and performance."
+      "Challenged conventional principles to explore impacts on scalability and performance.",
     ],
-    timeline: "Oct 2024 - Nov 2024"
+    timeline: "Oct 2024 - Nov 2024",
   },
   {
     title: "TetraLeague",
@@ -43,9 +45,9 @@ const projects: Project[] = [
     description: [
       "Developed a tournament management system for Tetris, handling player registration, match scheduling, and live leaderboard tracking.",
       "Implemented an Elo-based ranking system to match players of similar skill levels for fair gameplay.",
-      "Containerised with Docker and deployed using Vercel."
+      "Containerised with Docker and deployed using Vercel.",
     ],
-    timeline: "Aug 2024 - Nov 2024"
+    timeline: "Aug 2024 - Nov 2024",
   },
   {
     title: "Crazy Eights",
@@ -54,138 +56,66 @@ const projects: Project[] = [
     link: "https://github.com/joshuacdj/FinalProjectCrazyEight",
     description: [
       "Developed a Java Swing version of the classic Crazy Eights card game.",
-      "Designed and created an interactive graphical user interface (GUI)."
+      "Designed and created an interactive graphical user interface (GUI).",
     ],
-    timeline: "Feb 2024 - Apr 2024"
+    timeline: "Feb 2024 - Apr 2024",
   },
 ];
 
-const Projects = () => {
-  return (
-    <div className="container text-center position-relative">
-      {/* Title */}
-      <h2 className="mb-4 display-4 fw-bold projects-title">Projects</h2>
-
-      {/* Carousel Wrapper */}
-      <div
-        id="projectsCarousel"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
-        {/* Carousel Indicators */}
-        <div className="carousel-indicators">
-          {projects.reduce((rows, _, index) => {
-            if (index % 2 === 0) {
-              rows.push(index / 2);
-            }
-            return rows;
-          }, []).map((index) => (
-            <button
-              key={index}
-              type="button"
-              data-bs-target="#projectsCarousel"
-              data-bs-slide-to={index}
-              className={index === 0 ? "active" : ""}
-              aria-current={index === 0 ? "true" : "false"}
-              aria-label={`Slide ${index + 1}`}
-            ></button>
-          ))}
-        </div>
-
-        <div className="carousel-inner">
-          {/* Display 2 projects per slide */}
-          {projects
-            .reduce((rows, project, index) => {
-              if (index % 2 === 0) {
-                rows.push([project, projects[index + 1]]);
-              }
-              return rows;
-            }, [])
-            .map((pair, slideIndex) => (
-              <div
-                className={`carousel-item ${slideIndex === 0 ? "active" : ""}`}
-                key={slideIndex}
-                data-bs-interval="10000"
-              >
-                <div className="row justify-content-center">
-                  {pair.map(
-                    (project, index) =>
-                      project && (
-                        <div className="col-md-6 d-flex justify-content-center card-container mb-4" key={`${slideIndex}-${index}`}>
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="no-link-style w-100"
-                          >
-                            <div className="card shadow-sm p-3 h-100">
-                              {/* Image with fallback */}
-                              {project.image ? (
-                                <img
-                                  src={project.image}
-                                  className="card-img-top"
-                                  alt={project.title}
-                                  loading="lazy"
-                                />
-                              ) : (
-                                <div className="placeholder-image d-flex justify-content-center align-items-center bg-light" style={{height: "250px", borderRadius: "10px"}}>
-                                  <span className="text-muted">{project.title}</span>
-                                </div>
-                              )}
-                              
-                              {/* Card Body */}
-                              <div className="card-body text-start">
-                                <div className="d-flex justify-content-between align-items-start">
-                                  <h5 className="card-title fw-bold">{project.title}</h5>
-                                  <span className="badge bg-primary">{project.timeline}</span>
-                                </div>
-                                <h6 className="card-subtitle mb-3 text-muted">
-                                  {project.tech}
-                                </h6>
-                                <ul className="project-list ps-3">
-                                  {project.description.map((desc, j) => (
-                                    <li key={j} className="mb-2">{desc}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      )
-                  )}
-                </div>
-              </div>
-            ))}
-        </div>
-
-        {/* Fixed Arrow Controls */}
-        <button
-          className="carousel-control-prev fixed-carousel-button"
-          type="button"
-          data-bs-target="#projectsCarousel"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next fixed-carousel-button"
-          type="button"
-          data-bs-target="#projectsCarousel"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  );
+const breakpoints = {
+  default: 3, // ≥1400 px
+  1400: 3,
+  992: 2,
+  576: 1,
 };
+
+const Projects = () => (
+  <section id="projects" className="py-5">
+    <div className="container">
+      <h2 className="section-title text-center mb-5">Projects</h2>
+
+      <Masonry
+        breakpointCols={breakpoints}
+        className="masonry-grid"
+        columnClassName="masonry-col"
+      >
+        {projects.map((p) => (
+          <motion.a
+            key={p.title}
+            href={p.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card shadow-sm"
+            whileHover={{ y: -6 }}
+          >
+            {p.image ? (
+              <img
+                src={p.image}
+                alt={p.title}
+                className="w-100 project-img"
+                loading="lazy"
+              />
+            ) : (
+              <div className="project-placeholder d-flex align-items-center justify-content-center">
+                {p.title}
+              </div>
+            )}
+
+            <div className="project-overlay">
+              <h5 className="fw-bold mb-1">{p.title}</h5>
+              <small className="badge bg-primary mb-2">{p.timeline}</small>
+              <p className="fst-italic mb-2">{p.tech}</p>
+              <ul className="text-start ps-3">
+                {p.description.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.a>
+        ))}
+      </Masonry>
+    </div>
+  </section>
+);
 
 export default Projects;
