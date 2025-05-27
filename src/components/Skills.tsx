@@ -74,7 +74,7 @@ const skills: Skill[] = [
   { name: "MongoDB",     level: 80, icon: <SiMongodb />,       category: "Tools" },
   { name: "DynamoDB",    level: 72, icon: <SiAmazondynamodb />,category: "Tools" },
   { name: "Pandas",      level: 85, icon: <SiPandas />,        category: "Tools" },
-  { name: "Docker",      level: 78, icon: <FaDocker />,        category: "Tools" },
+  { name: "Docker",      level: 50, icon: <FaDocker />,        category: "Tools" },
   { name: "Tableau",     level: 70, icon: <SiTableau />,       category: "Tools" },
   { name: "AWS",         level: 80, icon: <FaAws />,           category: "Tools" },
   { name: "Postman",     level: 75, icon: <SiPostman />,       category: "Tools" },

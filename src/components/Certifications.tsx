@@ -8,6 +8,21 @@ interface Cert {
 
 const certs: Cert[] = [
   {
+    title: "Google Business Intelligence",
+    date: "May 2025",
+    icon: <FaGoogle />,
+  },
+  {
+    title: "Google Project Management",
+    date: "May 2025",
+    icon: <FaGoogle />,
+  },
+  {
+    title: "Google Prompting Essentials",
+    date: "May 2025",
+    icon: <FaGoogle />,
+  },
+  {
     title: "Google Advanced Data Analytics",
     date: "Aug 2024",
     icon: <FaGoogle />,

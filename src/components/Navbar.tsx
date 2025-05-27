@@ -7,40 +7,77 @@ const sections = ["home", "about", "skills", "projects", "experience", "certific
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [active, setActive] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // highlight section on scroll
+  // initialize based on URL hash or set to home
   useEffect(() => {
-    // Set initial active section based on URL hash or default to "home"
-    const setInitialActive = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash && sections.includes(hash)) {
-        setActive(hash);
-      } else {
-        setActive("home");
-      }
-    };
-    
-    setInitialActive();
+    const hash = window.location.hash.replace('#', '');
+    if (hash && sections.includes(hash)) {
+      setActive(hash);
+    } else {
+      setActive("home");
+    }
+  }, []);
 
+  // enhanced section detection on scroll
+  useEffect(() => {
     const onScroll = () => {
+      // Update navbar background based on scroll position
       setIsScrolled(window.scrollY > 50);
-
-      // Only update active section on scroll if we're not at the top
-      // to prevent Projects from being highlighted when on Home
-      document.querySelectorAll<HTMLElement>("section[id]").forEach((sec) => {
-        const offset = sec.offsetTop - 120;
-        if (window.scrollY >= offset && window.scrollY < offset + sec.offsetHeight) {
-          setActive(sec.id);
-        } else if (window.scrollY < 100) {
-          // If we're at the top of the page, ensure home is active
-          setActive("home");
+      
+      // Get all sections and find which one is in view
+      const sectionsElements = sections.map(id => ({
+        id,
+        element: document.getElementById(id),
+      })).filter(section => section.element);
+      
+      // If at the very top, force "home" to be active
+      if (window.scrollY < 50) {
+        setActive("home");
+        return;
+      }
+      
+      // Calculate which section is most in view
+      const viewportHeight = window.innerHeight;
+      let maxVisibleSection = { id: "home", visiblePercentage: 0 };
+      
+      sectionsElements.forEach(({ id, element }) => {
+        if (!element) return;
+        
+        const rect = element.getBoundingClientRect();
+        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+        const visiblePercentage = Math.max(0, visibleHeight / element.offsetHeight);
+        
+        if (visiblePercentage > maxVisibleSection.visiblePercentage) {
+          maxVisibleSection = { id, visiblePercentage };
         }
       });
+      
+      // Only update if we have a section with some visibility
+      if (maxVisibleSection.visiblePercentage > 0.15) {
+        setActive(maxVisibleSection.id);
+      }
     };
 
     window.addEventListener("scroll", onScroll);
+    
+    // Initial call to set the correct section
+    onScroll();
+    
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  
+  // Close mobile menu when clicking a link
+  const handleNavClick = (sectionId: string) => {
+    setActive(sectionId);
+    setIsMobileMenuOpen(false);
+    // Force the navbar collapse to close on mobile
+    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+      navbarToggler?.click();
+    }
+  };
 
   return (
     <nav
@@ -49,7 +86,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container">
-        <a className="navbar-brand fw-bold" href="#home">
+        <a className="navbar-brand fw-bold" href="#home" onClick={() => handleNavClick("home")}>
           <span className="brand-text">Ian Hoe</span>
         </a>
 
@@ -60,20 +97,21 @@ const Navbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={isMobileMenuOpen}
           aria-label="Toggle navigation"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <FaBars size={22} />
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className={`collapse navbar-collapse ${isMobileMenuOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-lg-center">
             {sections.map((s) => (
               <li key={s} className="nav-item">
                 <a
                   className={`nav-link ${active === s ? "active" : ""}`}
                   href={`#${s}`}
-                  onClick={() => setActive(s)}
+                  onClick={() => handleNavClick(s)}
                 >
                   {s.charAt(0).toUpperCase() + s.slice(1)}
                 </a>
